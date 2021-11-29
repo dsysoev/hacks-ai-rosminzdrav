@@ -217,9 +217,10 @@ def save_precision_recall(**kwargs):
 
         count = [(predict >= x).sum() for x in data.thresholds.tolist()]
 
-        data = data.round(3)
+
         data['count'] = count
         data['count_ratio'] = data['count'] / precision.shape[0]
+        data = data.round(3)
         data['type'] = name
         data_list.append(data)
 

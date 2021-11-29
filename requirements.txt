@@ -1,0 +1,7 @@
+joblib
+numpy
+pandas
+pymorphy2
+pymorphy2-dicts-ru
+scikit-learn
+sklearn
