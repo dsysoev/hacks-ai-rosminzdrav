@@ -18,19 +18,23 @@ def train_test_split_data(converted=False, sample=None, **kwargs):
     # get train data
     if converted:
         train_path = 'data/train_tokens.csv'
+        engine = 'python'
     else:
         train_path = 'data/train.csv'
+        engine = 'c'
 
     print('load train data {}'.format(train_path))
-    train = pd.read_csv(train_path, engine='python')
+    train = pd.read_csv(train_path, engine=engine)
 
     if converted:
         val_path = 'data/val_tokens.csv'
+        engine = 'python'
     else:
         val_path = 'data/val.csv'
+        engine = 'c'
 
     print('load val data {}'.format(val_path))
-    val = pd.read_csv(val_path, engine='python')
+    val = pd.read_csv(val_path, engine=engine)
 
     if sample is not None:
         print('get sample of train data {}'.format(sample))
@@ -389,8 +393,10 @@ def main(args: dict) -> None:
     save_precision_recall(**args)
 
 
+morph = pymorphy2.MorphAnalyzer()
+
+
 if __name__ == '__main__':
-    morph = pymorphy2.MorphAnalyzer()
     ARGS = {'C': 1, 'max_features': 800, 'converted': True, 'max_df': 0.99, 'min_df': 0.005, 'max_iter': 1000,
             'ngram_range': (1, 2), 'random_state': 47, 'penalty': 'l1', 'solver': 'saga', 'sample': None,
             'vocabulary': None}
