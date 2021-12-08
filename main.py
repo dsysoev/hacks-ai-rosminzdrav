@@ -198,7 +198,7 @@ def dataset_convert_and_save():
         tokens_train = convert_text_to_tokens(x_train, y_train)
         tokens_train.to_csv(train_path)
 
-        print('saved val tokenizer data {}'.format(train_path))
+        print('saved val tokenizer data {}'.format(val_path))
         tokens_test = convert_text_to_tokens(x_test, y_test)
         tokens_test.to_csv(val_path)
 
